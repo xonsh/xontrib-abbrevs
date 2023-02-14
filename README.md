@@ -1,4 +1,4 @@
-*This repository was created for the xontrib that xonsh contains by default.* 
+*This repository was created for the xontrib that xonsh [contains by default](https://github.com/xonsh/xonsh/tree/main/xontrib).* 
 
 # xontrib-abbrevs
 
