@@ -1,0 +1,19 @@
+# Changes here will be overwritten by Copier
+_commit: v0.1.0
+_src_path: gh:xonsh/xontrib-template
+email: no@no.no
+enable_autoloading: false
+enable_pre_commit_hooks: true
+full_name: xontrib-abbrevs
+github_username: xonsh
+has_aliases: false
+has_events: false
+package_manager: setuptools
+project_name: abbrevs
+project_package_name: abbrevs
+project_repo_name: xontrib-abbrevs
+project_short_description: Expands input words as you type in xonsh shell.
+pure_py: true
+py_module_name: xontrib_abbrevs
+version: 0.0.1
+
