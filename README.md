@@ -2,7 +2,7 @@
 Expands input words as you type in xonsh shell.
 </p>
 
-<p align="center">  
+<p align="center">
 If you like the idea click ⭐ on the repo and <a href="https://twitter.com/intent/tweet?text=Nice%20xontrib%20for%20the%20xonsh%20shell!&url=https://github.com/xonsh/xontrib-abbrevs" target="_blank">tweet</a>.
 </p>
 
