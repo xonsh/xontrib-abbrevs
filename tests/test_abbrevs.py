@@ -5,7 +5,6 @@ import sys
 
 from prompt_toolkit.buffer import Buffer
 from pytest import fixture, mark
-
 from xonsh.xontribs import find_xontrib
 
 

@@ -4,7 +4,6 @@ import typing as tp
 from prompt_toolkit.buffer import Buffer
 from prompt_toolkit.filters import IsMultiline, completion_is_selected
 from prompt_toolkit.keys import Keys
-
 from xonsh.built_ins import DynamicAccessProxy, XonshSession
 from xonsh.tools import check_for_partial_string
 
@@ -89,7 +88,6 @@ def set_cursor_position(buffer, expanded: str) -> None:
 
 def custom_keybindings(bindings, **kw):
     from prompt_toolkit.filters import EmacsInsertMode, ViInsertMode
-
     from xonsh.ptk_shell.key_bindings import carriage_return
 
     handler = bindings.add
