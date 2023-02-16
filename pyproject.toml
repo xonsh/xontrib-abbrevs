@@ -44,6 +44,7 @@ dev = ["pytest>=7.0"]
 requires = [
     "setuptools>=62",
     "wheel",               # for bdist package distribution
+    "poetry-core>=1.2.0",
 ]
 build-backend = "setuptools.build_meta"
 [tool.setuptools]
