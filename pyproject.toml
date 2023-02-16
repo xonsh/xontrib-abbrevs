@@ -13,7 +13,7 @@ classifiers = [
     "Topic :: Terminals",
 ]
 requires-python = ">=3.8"
-dependencies = ["xonsh>=0.12.5"]
+dependencies = ["xonsh>=0.12.5", "prompt-toolkit"]
 authors = [
     { name = "xontrib-abbrevs", email = "no@no.no" },
 ]
