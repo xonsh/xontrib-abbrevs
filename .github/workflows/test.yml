@@ -19,6 +19,8 @@ jobs:
           - "3.11-dev"
 
     runs-on: ${{ matrix.os }}
+    with:
+      cache-dependency-path: pyproject.toml
 
     steps:
     - uses: actions/checkout@v2
