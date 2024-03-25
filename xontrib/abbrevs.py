@@ -13,8 +13,7 @@ __all__ = ()
 if tp.TYPE_CHECKING:
 
     class AbbrCallType(tp.Protocol):
-        def __call__(self, word: str, buffer: Buffer) -> str:
-            ...
+        def __call__(self, word: str, buffer: Buffer) -> str: ...
 
     AbbrValType = tp.Union[str, AbbrCallType]
 
