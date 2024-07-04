@@ -13,8 +13,7 @@ __all__ = ()
 if tp.TYPE_CHECKING:
 
     class AbbrCallType(tp.Protocol):
-        def __call__(self, word: str, buffer: Buffer) -> str:
-            ...
+        def __call__(self, word: str, buffer: Buffer) -> str: ...
 
     AbbrValType = tp.Union[str, AbbrCallType]
 
@@ -88,6 +87,7 @@ def set_cursor_position(buffer, expanded: str) -> None:
 
 def custom_keybindings(bindings, **kw):
     from prompt_toolkit.filters import EmacsInsertMode, ViInsertMode
+
     try:
         from xonsh.shells.ptk_shell.key_bindings import carriage_return
     except ImportError:
