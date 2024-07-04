@@ -1,7 +1,6 @@
-
 [project]
 name = "xontrib-abbrevs"
-version = "0.0.1"
+version = "0.1.0"
 license = {file = "LICENSE"}
 description = "Expands input words as you type in xonsh shell."
 classifiers = [
@@ -12,8 +11,8 @@ classifiers = [
     "Topic :: System :: System Shells",
     "Topic :: Terminals",
 ]
-requires-python = ">=3.8"
-dependencies = ["xonsh>=0.12.5", "prompt-toolkit"]
+requires-python = ">=3.10"
+dependencies = ["xonsh>=0.17", "prompt-toolkit"]
 authors = [
     { name = "xontrib-abbrevs", email = "no@no.no" },
 ]
@@ -21,24 +20,14 @@ authors = [
 file = "README.md"
 content-type = "text/markdown"
 
-
-
-
-
 [project.urls]
-
 Homepage = "https://github.com/xonsh/xontrib-abbrevs"
 Documentation = "https://github.com/xonsh/xontrib-abbrevs/blob/master/README.md"
 Code = "https://github.com/xonsh/xontrib-abbrevs"
 "Issue tracker" = "https://github.com/xonsh/xontrib-abbrevs/issues"
 
-
-
-
 [project.optional-dependencies]
 dev = ["pytest>=7.0"]
-
-
 
 [build-system]
 requires = [
@@ -47,37 +36,9 @@ requires = [
     "poetry-core>=1.3.2",
 ]
 build-backend = "setuptools.build_meta"
-[tool.setuptools]
 
+[tool.setuptools]
 packages = ["xontrib"]
 package-dir = {xontrib = "xontrib"}
-
 platforms = ["any"]
 include-package-data = false
-[tool.setuptools.package-data]
-
-xontrib = ["*.xsh"]
-
-
-
-[tool.isort]
-profile = "black"
-
-[tool.black]
-include = '\.pyi?$'
-force-exclude = '''
-/(
-    \.git
-  | \.hg
-  | \.mypy_cache
-  | \.pytest_cache
-  | \.tox
-  | \.vscode
-  | \.venv
-  | _build
-  | buck-out
-  | build
-  | dist
-  | disk-cache.sqlite3
-)/
-'''
