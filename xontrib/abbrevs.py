@@ -88,7 +88,10 @@ def set_cursor_position(buffer, expanded: str) -> None:
 
 def custom_keybindings(bindings, **kw):
     from prompt_toolkit.filters import EmacsInsertMode, ViInsertMode
-    from xonsh.ptk_shell.key_bindings import carriage_return
+    try:
+        from xonsh.shells.ptk_shell.key_bindings import carriage_return
+    except ImportError:
+        from xonsh.ptk_shell.key_bindings import carriage_return
 
     handler = bindings.add
     insert_mode = ViInsertMode() | EmacsInsertMode()
@@ -126,61 +129,4 @@ def _load_xontrib_(xsh: XonshSession, **_):
     xsh.builtins.abbrevs = abbrevs
     proxy = DynamicAccessProxy("abbrevs", "__xonsh__.builtins.abbrevs")
     builtins.abbrevs = proxy  # type: ignore
-
     return {"abbrevs": abbrevs}
-
-
-# # TODO: Implement adding the abbrevs section into `xonfig web`.
-#
-# import sys
-# import inspect
-# from xonsh.webconfig.routes import Routes, XontribsPage
-#
-# class AbbrevsPage(Routes):
-#     path = "/abbrevs"
-#     mod_name = XontribsPage.mod_name("abbrevs")
-#
-#     def __init__(self, **kwargs):
-#         super().__init__(**kwargs)
-#         # lazy import as to not load by accident
-#         from xontrib.abbrevs import abbrevs  # type: ignore
-#
-#         self.abbrevs: "dict[str, str]" = abbrevs
-#
-#     @classmethod
-#     def nav_title(cls):
-#         if cls.mod_name in sys.modules:
-#             return "Abbrevs"
-#
-#     def get_header(self):
-#         yield t.tr()[
-#             t.th("text-right")["Name"],
-#             t.th()["Value"],
-#         ]
-#
-#     def get_rows(self):
-#         for name in sorted(self.abbrevs.keys()):
-#             alias = self.abbrevs[name]
-#             if callable(alias):
-#                 display = inspect.getsource(alias)
-#             else:
-#                 display = str(alias)
-#             # todo:
-#             #  2. way to update
-#
-#             yield t.tr()[
-#                 t.td("text-right")[str(name)],
-#                 t.td()[
-#                     t.p()[repr(display)],
-#                 ],
-#             ]
-#
-#     def get_table(self):
-#         rows = list(self.get_rows())
-#         yield t.tbl("table-sm", "table-striped")[
-#             self.get_header(),
-#             rows,
-#         ]
-#
-#     def get(self):
-#         yield t.div("table-responsive")[self.get_table()]
