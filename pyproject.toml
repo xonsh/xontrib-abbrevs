@@ -1,6 +1,6 @@
 [project]
 name = "xontrib-abbrevs"
-version = "0.1.0"
+dynamic = ["version"]
 license = {file = "LICENSE"}
 description = "Expands input words as you type in xonsh shell."
 classifiers = [
@@ -33,7 +33,7 @@ dev = ["pytest>=7.0"]
 requires = [
     "setuptools>=62",
     "wheel",               # for bdist package distribution
-    "poetry-core>=1.3.2",
+    "setuptools_scm>=8",
 ]
 build-backend = "setuptools.build_meta"
 
@@ -42,3 +42,6 @@ packages = ["xontrib"]
 package-dir = {xontrib = "xontrib"}
 platforms = ["any"]
 include-package-data = false
+
+[tool.setuptools_scm]
+
