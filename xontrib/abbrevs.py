@@ -1,3 +1,5 @@
+"""Expand command abbreviations while typing in the Xonsh shell."""
+
 import builtins
 import typing as tp
 
