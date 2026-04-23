@@ -4,7 +4,7 @@ import builtins
 import typing as tp
 
 from prompt_toolkit.buffer import Buffer
-from prompt_toolkit.filters import IsMultiline, completion_is_selected
+from prompt_toolkit.filters import IsMultiline, IsSearching, completion_is_selected
 from prompt_toolkit.keys import Keys
 from xonsh.built_ins import DynamicAccessProxy, XonshSession
 from xonsh.tools import check_for_partial_string
@@ -99,7 +99,7 @@ def custom_keybindings(bindings, **kw):
     insert_mode = ViInsertMode() | EmacsInsertMode()
     abbrev = Abbreviation()
 
-    @handler(" ", filter=IsMultiline() & insert_mode)
+    @handler(" ", filter=IsMultiline() & insert_mode & ~IsSearching())
     def handle_space(event):
         buffer = event.app.current_buffer
 
@@ -112,10 +112,12 @@ def custom_keybindings(bindings, **kw):
             buffer.insert_text(" ")
 
     @handler(
-        Keys.ControlJ, filter=IsMultiline() & insert_mode & ~completion_is_selected
+        Keys.ControlJ,
+        filter=IsMultiline() & insert_mode & ~completion_is_selected & ~IsSearching(),
     )
     @handler(
-        Keys.ControlM, filter=IsMultiline() & insert_mode & ~completion_is_selected
+        Keys.ControlM,
+        filter=IsMultiline() & insert_mode & ~completion_is_selected & ~IsSearching(),
     )
     def multiline_carriage_return(event):
         buffer = event.app.current_buffer
