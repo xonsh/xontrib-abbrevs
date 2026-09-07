@@ -30,7 +30,7 @@ class _LastExpanded(tp.NamedTuple):
 class Abbreviation:
     """A container class to handle state related to abbreviating keywords"""
 
-    last_expanded: tp.Optional[_LastExpanded] = None
+    last_expanded: _LastExpanded | None = None
 
     def expand(self, buffer: Buffer) -> bool:
         """expand the given abbr text. Return true if cursor position changed."""
